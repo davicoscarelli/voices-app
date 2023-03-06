@@ -20,7 +20,7 @@
       </div> -->
       <div class="content">
         <div class="content-header">
-          <span class="content-title">Today's Thought</span>
+          <span class="content-title">Shared with you</span>
           <q-btn flat class="btn-all" color="white" round icon="refresh" @click="getAudio(true)"></q-btn>
         </div>
         <ul class="playlist">
@@ -64,10 +64,10 @@
         </div> -->
       </div>
 
-      <q-page-sticky position="bottom" :offset="[0, 30]">
+      <q-page-sticky position="bottom" :offset="[0, 30]" >
             
             
-            <div class="controls row flex flex-center fixed-bottom  ">
+            <div class="controls row flex flex-center fixed-bottom" :style="player_expand || recorder_expand ? 'display: none' : ''" v-if="!player_expand || !recorder_expand">
             <div class>
               
               <q-btn
@@ -279,8 +279,7 @@ export default defineComponent({
       this.wavesurfer = null
       this.form = {
         audio: null,
-        size: '',
-        topic: ''
+        size: ''
       }
     },
     playerControl(){
